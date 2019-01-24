@@ -102,6 +102,11 @@ namespace Univer
             }
             return againGroup;
         }
-
+        public static int AmountOfUsers {
+            get
+            {
+                return AMOUNT_USERS_IN_GROUP;
+            }
+        }
     }
 }

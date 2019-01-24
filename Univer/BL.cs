@@ -26,6 +26,37 @@ namespace Univer
             return -1;
         }
 
+        public static Student SearchStudent(string query)
+        {
+            if (int.TryParse(query, out int numb))
+            {
+                for (int i = 0; i <= Program.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+                {
+                    for (int j = 0; j < Creation.AmountOfUsers; j++)
+                    {
+                        if (Program.groups[i].students[j].id == numb)
+                        {
+                            return Program.groups[i].students[j];
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= Program.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+                {
+                    for (int j = 0; j < Creation.AmountOfUsers; j++)
+                    {
+                        if (Program.groups[i].students[j].lastName == query || Program.groups[i].students[j].lastName == query)
+                        {
+                            return Program.groups[i].students[j];
+                        }
+
+                    }
+                }
+            }
+            return null;           
+        }
         public static Group GetGroupByIndex(int groupIndex, ref Group[] groups)
         {
             return groups[groupIndex];
