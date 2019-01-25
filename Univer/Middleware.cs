@@ -11,6 +11,7 @@ namespace Univer
         public static void UIToBLInvoker(int context)
         {
             ConsoleKey consoleKey = Console.ReadKey().Key;
+            //Tools.ClearDisplay();
             if (context == 1)
             {
                 switch (consoleKey)
@@ -35,7 +36,7 @@ namespace Univer
                     case ConsoleKey.D0:
                         break;
                     case ConsoleKey.D1:
-                        ShowUI.ShAddingStudent();
+                       // ShowUI.ShAddingStudent();
                         break;
                     case ConsoleKey.D2:
                         break;
@@ -51,7 +52,7 @@ namespace Univer
                     case ConsoleKey.D0:
                         break;
                     case ConsoleKey.D1:
-                        ShowUI.ShAddingStudent();
+                        
                         break;
                     case ConsoleKey.D2:
                         break;
@@ -67,7 +68,7 @@ namespace Univer
                     case ConsoleKey.D0:
                         break;
                     case ConsoleKey.D1:
-                        ShowUI.ShAddingStudent();
+                        ShowUI.ShSearchStudent();
                         break;
                     case ConsoleKey.D2:
                         break;

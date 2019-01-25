@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Univer
+﻿namespace Univer
 {
+    using System;
+    using System.Linq;
+
     class BL
     {
         /// <summary>
@@ -18,44 +15,63 @@ namespace Univer
         {
             for (int i = 0; i < Program.groups.Length; i++)
             {
-                if (Program.groups[i].groupNumber == num)
+                if (Program.groups[i] != null)
                 {
-                    return i;
+                    if (Program.groups[i].groupNumber == num)
+                    {
+                        return i;
+                    }
                 }
             }
             return -1;
         }
 
-        public static Student SearchStudent(string query)
+        public static Student[] SearchStudent(string query)
         {
+            int cnt = 0;
+            Student[] findedStudents = new Student[20];
             if (int.TryParse(query, out int numb))
             {
                 for (int i = 0; i <= Program.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
                 {
-                    for (int j = 0; j < Creation.AmountOfUsers; j++)
+                    if (Program.groups[i] != null)
                     {
-                        if (Program.groups[i].students[j].id == numb)
+                        for (int j = 0; j < Creation.AmountOfUsers; j++)
                         {
-                            return Program.groups[i].students[j];
+                            if (Program.groups[i].students[j] != null)
+                            {
+                                if (Program.groups[i].students[j].id == numb)
+                                {
+                                    findedStudents[cnt] = Program.groups[i].students[j];
+                                    ++cnt;
+                                }
+                            }
                         }
-                    }
+                    }                    
                 }
             }
             else
             {
                 for (int i = 0; i <= Program.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
                 {
-                    for (int j = 0; j < Creation.AmountOfUsers; j++)
+                    if (Program.groups[i] != null)
                     {
-                        if (Program.groups[i].students[j].lastName == query || Program.groups[i].students[j].lastName == query)
+                        for (int j = 0; j < Creation.AmountOfUsers; j++)
                         {
-                            return Program.groups[i].students[j];
+                            if (Program.groups[i].students[j] != null)
+                            {
+                                if (Program.groups[i].students[j].lastName == query || Program.groups[i].students[j].lastName == query)
+                                {
+                                    findedStudents[cnt] = Program.groups[i].students[j];
+                                    ++cnt;
+                                }
+                            }                          
                         }
-
                     }
+                        
                 }
             }
-            return null;           
+            return findedStudents;           
         }
         public static Group GetGroupByIndex(int groupIndex, ref Group[] groups)
         {

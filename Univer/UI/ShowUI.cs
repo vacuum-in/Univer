@@ -47,8 +47,23 @@ namespace Univer
             {
             Group ourGroup = Program.GroupGetter(groupNumber);
                 Creation.AddNewStudent(studentNumber, stName, stLstName, ref ourGroup);
-            }       
+            }
+            else
+            {
+                Console.WriteLine("There is not any group with this number");
+                Console.ReadKey();
+                ShowUIMain();
+
+            }
             Tools.ClearDisplay();
+        }
+        public static void ShSearchStudent()
+        {
+            Console.WriteLine("################################### Search Student ###################################");
+            Console.Write("Enter query: ");
+            string query = Console.ReadLine();
+            Student[] findedStudents = BL.SearchStudent(query);
+            UIMain.ShowStudents(ref findedStudents);
         }
 
         public static void Processing()
@@ -56,8 +71,8 @@ namespace Univer
             bool exit = true;
             do
             {
-                Console.SetCursorPosition(firstLeft, top);
-                Console.WriteLine("Enter: ");
+                ////Console.SetCursorPosition(firstLeft, top);
+                ////Console.WriteLine("Enter: ");
                 Console.SetCursorPosition(secondLeft, top);
                 // Console.ReadKey();
                 ConsoleKey key = Console.ReadKey().Key;
@@ -66,56 +81,36 @@ namespace Univer
                     case ConsoleKey.Escape:
                         exit = false;
                         break;
+
                     case ConsoleKey.D0:
                         UING.ShowMyUI("1) Adding", "2) Deleting", "3) Updating", "4) Find", "5) Analyze", "Main Menu");
-                    break;
+                        break;
+
                     case ConsoleKey.D1:
                         UING.ShowMyUI("1) Add student", "2) Add group", "3) Add Grade", "Adding");
-                    Console.SetCursorPosition(secondLeft, top);
-                    Middleware.UIToBLInvoker(1);
-                        //  Console.ReadKey();
+                        Middleware.UIToBLInvoker(1);
                         break;
+
                     case ConsoleKey.D2:
-                    UING.ShowMyUI("1) Delete student", "2) Delete group", "3) Delete grade", "Delete");
-                        Console.SetCursorPosition(secondLeft, top);
-                        // Console.ReadKey();
+                        UING.ShowMyUI("1) Delete student", "2) Delete group", "3) Delete grade", "Delete");
+                        Middleware.UIToBLInvoker(2);
                         break;
+
                     case ConsoleKey.D3:
-                    UING.ShowMyUI("1) Upadte student info", "2) Update group info", "3) Update grade", "Update");
-                    Console.SetCursorPosition(secondLeft, top);
-                        //  Console.ReadKey();
+                        UING.ShowMyUI("1) Upadte student info", "2) Update group info", "3) Update grade", "Update");
+                        Middleware.UIToBLInvoker(3);
                         break;
+
                     case ConsoleKey.D4:
-                    UING.ShowMyUI("1) Find student", "2) Find group", "Find");
-
-                    Console.SetCursorPosition(secondLeft, top);
-                        //  Console.ReadKey();
+                        UING.ShowMyUI("1) Find student", "2) Find group", "Find");
+                        Middleware.UIToBLInvoker(4);
                         break;
+
                     case ConsoleKey.D5:
-                    UING.ShowMyUI("1) Average Grades", "2) Average Age", "Analyze");
-
-                    Console.SetCursorPosition(secondLeft, top);
-                        //  Console.ReadKey();
+                        UING.ShowMyUI("1) Average Grades", "2) Average Age", "Analyze");
+                        Middleware.UIToBLInvoker(5);
                         break;
 
-                    //case ConsoleKey.NumPad0:
-                    //    ShowMain();
-                    //    break;
-                    //case ConsoleKey.NumPad1:
-                    //    ShowAdding();
-                    //    break;
-                    //case ConsoleKey.NumPad2:
-                    //    ShowDeleting();
-                    //    break;
-                    //case ConsoleKey.NumPad3:
-                    //    ShowUpdating();
-                    //    break;
-                    //case ConsoleKey.NumPad4:
-                    //    ShowFind();
-                    //    break;
-                    //case ConsoleKey.NumPad5:
-                    //    ShowAnalyze();
-                    //    break;
 
                     default:
                         break;

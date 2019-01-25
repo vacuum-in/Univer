@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univer", "Univer\Univer.csproj", "{9CD142C6-525C-4648-8FEF-4D5A22B2AB8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerFunc", "..\SchedulerFunc\SchedulerFunc\SchedulerFunc.csproj", "{7112C4DE-5D2E-49C8-9110-B064C93F503F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITests", "UITests\UITests.csproj", "{1645DC9A-1BC2-41AC-BEA1-CB4527138FD3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{9CD142C6-525C-4648-8FEF-4D5A22B2AB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CD142C6-525C-4648-8FEF-4D5A22B2AB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CD142C6-525C-4648-8FEF-4D5A22B2AB8C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7112C4DE-5D2E-49C8-9110-B064C93F503F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7112C4DE-5D2E-49C8-9110-B064C93F503F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7112C4DE-5D2E-49C8-9110-B064C93F503F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7112C4DE-5D2E-49C8-9110-B064C93F503F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1645DC9A-1BC2-41AC-BEA1-CB4527138FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1645DC9A-1BC2-41AC-BEA1-CB4527138FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1645DC9A-1BC2-41AC-BEA1-CB4527138FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1645DC9A-1BC2-41AC-BEA1-CB4527138FD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

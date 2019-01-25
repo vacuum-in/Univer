@@ -48,12 +48,11 @@ namespace Univer
         }
 
         /// <summary>
-        /// This func creates new group and adds it to grop array "groups"   
+        /// This function creates new group and adds it to group array "groups"   
         /// </summary>
         /// <param name="groups">This is array with our groups</param>
         /// <param name="groupNum">This is a unique group identifier </param>
         /// <param name="spec">String that explain group specification</param>
-        /// <param name="groupCounter">Counter for amount of gruops</param>
         public static void AddGroup(ref Group[] groups, int groupNum, string spec)
         {
             Student[] studs = new Student[AMOUNT_USERS_IN_GROUP];
@@ -106,6 +105,13 @@ namespace Univer
             get
             {
                 return AMOUNT_USERS_IN_GROUP;
+            }
+        }
+        public static int AmountOfGrades
+        {
+            get
+            {
+                return AMOUNT_GRADES_PER_STUDENT;
             }
         }
     }

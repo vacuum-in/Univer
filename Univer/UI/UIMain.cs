@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Univer
 {
@@ -41,6 +42,28 @@ namespace Univer
                             Console.WriteLine();
                         }
                     }                
+                }
+            }
+        }
+        public static void ShowStudents(ref Student[] students)
+        {            
+            for (int i = 0; i < students.GetLength(0); i++)
+            {
+                StringBuilder sb = new StringBuilder();
+                if (students[i] != null)
+                {
+                    Console.WriteLine("Student {0} {1}", students[i].firstName, students[i].lastName);
+                    Console.WriteLine("ID {0}", students[i].id);
+                    for (int j = 0; j < Creation.AMOUNT_GRADES_PER_STUDENT; j++)
+                    {
+                        if (students[i].grades[j] != 0)
+                        {
+                            sb.Append(students[i].grades[j]);
+                            sb.Append("  ");
+                        }
+                    }
+                    Console.WriteLine(sb);
+                    Console.WriteLine(); ;
                 }
             }
         }
