@@ -14,10 +14,10 @@ namespace Univer
             }
             for (int i = 0; i < AMOUNT_USERS_IN_GROUP; i++)
             {
-                if (group.students[i] == null) // How can I check if object is initialized?
+                if (group.[i] == null) // How can I check if object is initialized?
                 {
                     Student newStudent = new Student(id, fName + i, lName + i, new int[AMOUNT_GRADES_PER_STUDENT], new DateTime());
-                    group.students[i] = newStudent;
+                    group[i] = newStudent;
                 }
             }
         }
@@ -34,7 +34,7 @@ namespace Univer
                // if (group.students[i].firstName == null && group.students[i].lastName == null) // How can I check if object is initialized?
                 {
                     Student newStudent = new Student( id , fName + i, lName + i,  new int[AMOUNT_GRADES_PER_STUDENT], new DateTime() );
-                    group.students[i] = newStudent;
+                    group.[i] = newStudent;
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace Univer
         public static void AddGroup(ref Group[] groups, int groupNum, string spec)
         {
             Student[] studs = new Student[AMOUNT_USERS_IN_GROUP];
-            Group temp = new Group() { groupNumber = groupNum, specialization = spec, students = studs };
+            Group temp = new Group() { GroupNumber = groupNum, Specialization = spec, students = studs };
             groups[Program.GroupCounter] = temp;
             ++Program.GroupCounter;
         }
@@ -81,7 +81,7 @@ namespace Univer
         /// <param name="inGroup">input group object</param>
         public static void AddGroup(int newGroupNum, ref Group inGroup, ref Group[] groups)
         {
-            inGroup.groupNumber = newGroupNum;
+            inGroup.GroupNumber = newGroupNum;
             groups[Program.GroupCounter] = inGroup;
             ++Program.GroupCounter;
         }
@@ -93,10 +93,10 @@ namespace Univer
 
             for (int i = 0; i < groupToMove.students.GetLength(0); i++)
             {
-                againGroup.students[i] = groupToMove.students[i];
+                againGroup[i] = groupToMove[i];
                 for (int j = 0; j < AMOUNT_GRADES_PER_STUDENT; j++)
                 {
-                    againGroup.students[i].grades[j] = groupToMove.students[i].grades[j]; //If you don't want to move grades frop previous course you should put 0 instead of "group.students[i].grades[j]"
+                    againGroup[i][j] = groupToMove[i][j]; //If you don't want to move grades frop previous course you should put 0 instead of "group.students[i].grades[j]"
                 }
             }
             return againGroup;

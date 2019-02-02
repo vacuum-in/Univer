@@ -26,7 +26,7 @@ namespace Univer
                         {
                             DateTime Temp = (DateTime.Now.AddYears(Program.rnd.Next(-25, -18)));
                             Temp = Temp.AddDays(Program.rnd.Next(-365, 0));
-                            groups[i].students[j].birthDay = Temp;
+                            groups[i].students[j].BirthDay = Temp;
                         }
                     }
                 }
@@ -45,7 +45,7 @@ namespace Univer
                             groups[i].students[j].grades = new int[Creation.AMOUNT_GRADES_PER_STUDENT];
                             for (int k = 0; k < Creation.AMOUNT_GRADES_PER_STUDENT; k++)
                             {
-                                groups[i].students[j].grades[k] = Program.rnd.Next(50, 100);
+                                groups[i].students[j][k] = Program.rnd.Next(50, 100);
                             }
                         }
 

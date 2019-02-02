@@ -8,20 +8,75 @@ namespace Univer
 {
     class Student
     {
-        public int id;
-        public string firstName;
-        public string lastName;
-        public int[] grades;
-        public DateTime birthDay;
+        private int _id;
+        private string _firstName;
+        private string _lastName;
+        public int[] grades; //Can hide array?
+        private DateTime _birthDay;
 
         public Student(int id, string fName, string lName, int[] grades, DateTime birthDay)
         {
-            this.birthDay = birthDay;
-            this.firstName = fName;
-            this.id = id;
-            this.lastName = lName;
+            this._birthDay = birthDay;
+            this._firstName = fName;
+            this._id = id;
+            this._lastName = lName;
             this.grades = grades;
         }
+        public int this[int index]
+        {
+            get
+            {
+                return grades[index];
+            }
+            set
+            {
+                grades[index] = value;
+            }
+        }
 
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+        public string FirstName
+        {
+            get
+            {
+                return _firstName;
+            }
+            set
+            {
+                _firstName = value;
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            set
+            {
+                _lastName = value;
+            }
+        }
+        public DateTime BirthDay
+        {
+            get
+            {
+                return _birthDay;
+            }
+            set
+            {
+                _birthDay = value;
+            }
+        }
     }
 }

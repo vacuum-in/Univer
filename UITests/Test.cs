@@ -8,5 +8,12 @@ namespace UITests
 {
     class Test
     {
+        public void DrawSomething()
+        {
+            Console.WriteLine("==================================");
+            Console.WriteLine("|                                 |");
+            Console.WriteLine("==================================");
+        }
+        
     }
 }

@@ -17,7 +17,7 @@
             {
                 if (Program.groups[i] != null)
                 {
-                    if (Program.groups[i].groupNumber == num)
+                    if (Program.groups[i].GroupNumber == num)
                     {
                         return i;
                     }
@@ -40,7 +40,7 @@
                         {
                             if (Program.groups[i].students[j] != null)
                             {
-                                if (Program.groups[i].students[j].id == numb)
+                                if (Program.groups[i].students[j].Id == numb)
                                 {
                                     findedStudents[cnt] = Program.groups[i].students[j];
                                     ++cnt;
@@ -60,15 +60,14 @@
                         {
                             if (Program.groups[i].students[j] != null)
                             {
-                                if (Program.groups[i].students[j].lastName == query || Program.groups[i].students[j].lastName == query)
+                                if (Program.groups[i].students[j].LastName == query || Program.groups[i].students[j].LastName == query)
                                 {
                                     findedStudents[cnt] = Program.groups[i].students[j];
                                     ++cnt;
                                 }
                             }                          
                         }
-                    }
-                        
+                    }                       
                 }
             }
             return findedStudents;           
@@ -90,7 +89,7 @@
             double temp = 0;
             for (int i = 0; i < group.students.GetLength(0); i++)
             {
-                temp += group.students[i].grades.Average();
+                temp += group[i].grades.Average();
             }
             Console.WriteLine(temp / group.students.GetLength(0));
             return (temp / group.students.GetLength(0));
@@ -101,7 +100,7 @@
             //DateTime tmpDate = new DateTime();
             for (int i = 0; i < group.students.GetLength(0); i++)
             {
-                temp += (DateTime.Now.Year - group.students[i].birthDay.Year);
+                temp += (DateTime.Now.Year - group[i].BirthDay.Year);
             }
             Console.WriteLine(temp / group.students.GetLength(0));
             return (temp / group.students.GetLength(0));
@@ -113,7 +112,7 @@
             {
                 for (int j = 0; j < groups[i].students.GetLength(0); j++)
                 {
-                    if (groups[i].students[j].firstName == Name || groups[i].students[j].lastName == Name)
+                    if (groups[i].students[j].FirstName == Name || groups[i].students[j].LastName == Name)
                     {
                         temp[temp.GetLength(0)] = groups[i].students[j];
                     }   

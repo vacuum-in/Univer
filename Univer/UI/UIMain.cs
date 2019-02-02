@@ -11,7 +11,7 @@ namespace Univer
             {
                 if (groups[i] != null)
                 {
-                    Console.WriteLine("{0}   {1}", groups[i].specialization, groups[i].groupNumber);
+                    Console.WriteLine("{0}   {1}", groups[i].Specialization, groups[i].GroupNumber);
                 }
             }
         }
@@ -29,15 +29,15 @@ namespace Univer
             {
                 if (groups[i] != null)
                 {
-                    Console.WriteLine("Group {0} Number {1}", groups[i].specialization, groups[i].groupNumber);
+                    Console.WriteLine("Group {0} Number {1}", groups[i].Specialization, groups[i].GroupNumber);
                     for (int j = 0; j < groups[i].students.GetLength(0); j++)
                     {
                         if (groups[i].students[j] != null)
                         {
-                            Console.WriteLine("  {0} {1} {2}", groups[i].students[j].firstName, groups[i].students[j].lastName, groups[i].students[j].birthDay.ToLongDateString());
+                            Console.WriteLine("  {0} {1} {2}", groups[i].students[j].FirstName, groups[i].students[j].LastName, groups[i].students[j].BirthDay.ToLongDateString());
                             for (int k = 0; k < Creation.AMOUNT_GRADES_PER_STUDENT; k++)
                             {
-                                Console.WriteLine("             {0}", groups[i].students[j].grades[k]);
+                                Console.WriteLine("             {0}", groups[i].students[j][k]);
                             }
                             Console.WriteLine();
                         }
@@ -52,13 +52,13 @@ namespace Univer
                 StringBuilder sb = new StringBuilder();
                 if (students[i] != null)
                 {
-                    Console.WriteLine("Student {0} {1}", students[i].firstName, students[i].lastName);
-                    Console.WriteLine("ID {0}", students[i].id);
+                    Console.WriteLine("Student {0} {1}", students[i].FirstName, students[i].LastName);
+                    Console.WriteLine("ID {0}", students[i].Id);
                     for (int j = 0; j < Creation.AMOUNT_GRADES_PER_STUDENT; j++)
                     {
-                        if (students[i].grades[j] != 0)
+                        if (students[i][j] != 0)
                         {
-                            sb.Append(students[i].grades[j]);
+                            sb.Append(students[i][j]);
                             sb.Append("  ");
                         }
                     }
