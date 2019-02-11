@@ -14,7 +14,7 @@ namespace Univer
             }
             for (int i = 0; i < AMOUNT_USERS_IN_GROUP; i++)
             {
-                if (group.[i] == null) // How can I check if object is initialized?
+                if (group[i] == null) // How can I check if object is initialized?
                 {
                     Student newStudent = new Student(id, fName + i, lName + i, new int[AMOUNT_GRADES_PER_STUDENT], new DateTime());
                     group[i] = newStudent;
@@ -34,7 +34,7 @@ namespace Univer
                // if (group.students[i].firstName == null && group.students[i].lastName == null) // How can I check if object is initialized?
                 {
                     Student newStudent = new Student( id , fName + i, lName + i,  new int[AMOUNT_GRADES_PER_STUDENT], new DateTime() );
-                    group.[i] = newStudent;
+                    group[i] = newStudent;
                 }
             }
         }
