@@ -12,20 +12,36 @@ namespace Univer
         {
 
         }
-        public Group (int groupNumber, string specialization, Student[] students)
+
+        /// <summary>
+        /// New group constructor
+        /// </summary>
+        /// <param name="groupNumber">Number for group</param>
+        /// <param name="specialization">Speciality of group</param>
+        public Group (int groupNumber, string specialization)
         {
             this._groupNumber = groupNumber;
             this._specialization = specialization;
-            this.students = students;
+            this.students = new Student[Creation.AMOUNT_USERS_IN_GROUP];
         }
 
-        public Group(Group source)
-            : this(source._groupNumber, source._specialization,source.students)
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="source"></param>
+        public Group(Group source) 
         {
-            //groupNumber = source.groupNumber;
-            //specialization = source.specialization;
-            //students = source.students;
+            _groupNumber = source.GroupNumber;
+            _specialization = source.Specialization;
+            students = source.students;
         }
+
+        #region Prop and Indexer
+        /// <summary>
+        /// Student indexer
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Student this[int index]
         {
             get
@@ -59,5 +75,6 @@ namespace Univer
                 _specialization = value;
             }
         }
+        #endregion
     }
 }

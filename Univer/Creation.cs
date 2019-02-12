@@ -41,8 +41,8 @@ namespace Univer
 
         public static void AddNewGroup( int groupNum, string spec)
         {
-            Student[] studs = new Student[AMOUNT_USERS_IN_GROUP];
-            Program.groups[Program.GroupCounter] = new Group(groupNum, spec, studs);
+
+            Program.groups[Program.GroupCounter] = new Group(groupNum, spec);
             ++Program.GroupCounter;
 
         }
@@ -56,7 +56,7 @@ namespace Univer
         public static void AddGroup(ref Group[] groups, int groupNum, string spec)
         {
             Student[] studs = new Student[AMOUNT_USERS_IN_GROUP];
-            Group temp = new Group() { GroupNumber = groupNum, Specialization = spec, students = studs };
+            Group temp = new Group(groupNum, spec);
             groups[Program.GroupCounter] = temp;
             ++Program.GroupCounter;
         }

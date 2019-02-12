@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BL.cs" />
     <Compile Include="Creation.cs" />
+    <Compile Include="Dekanat.cs" />
     <Compile Include="Deletion.cs" />
     <Compile Include="FillData.cs" />
     <Compile Include="Middleware.cs" />
@@ -58,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Structs\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
