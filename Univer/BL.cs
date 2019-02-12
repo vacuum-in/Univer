@@ -77,12 +77,12 @@
             return groups[groupIndex];
         }
 
-        public static void MoveToNextLevel(ref Group inGroup, int newGroupNum, ref Group[] groups)
-        {
-            Group nextGroup = new Group();
-            nextGroup = Creation.CreateNewGroupFromExisting(ref inGroup);
-            Creation.AddGroup(newGroupNum, ref nextGroup, ref groups);
-        }
+        //public static void MoveToNextLevel(ref Group inGroup, int newGroupNum, ref Group[] groups)
+        //{
+        //    Group nextGroup = new Group();
+        //    nextGroup = Creation.CreateNewGroupFromExisting(ref inGroup);
+        //    Creation.AddGroup(newGroupNum, ref nextGroup, ref groups);
+        //}
 
         public static double GetAvgGrade(ref Group group)
         {

@@ -85,22 +85,22 @@ namespace Univer
             groups[Program.GroupCounter] = inGroup;
             ++Program.GroupCounter;
         }
-        public static Group CreateNewGroupFromExisting(ref Group groupToMove)
-        {
-            Group againGroup = new Group(groupToMove);
+        //public static Group CreateNewGroupFromExisting(ref Group groupToMove)
+        //{
+        //    Group againGroup = new Group(groupToMove);
 
-//            againGroup.students = new Student[AMOUNT_USERS_IN_GROUP];
+        //    //            againGroup.students = new Student[AMOUNT_USERS_IN_GROUP];
 
-            for (int i = 0; i < groupToMove.students.GetLength(0); i++)
-            {
-                againGroup[i] = groupToMove[i];
-                for (int j = 0; j < AMOUNT_GRADES_PER_STUDENT; j++)
-                {
-                    againGroup[i][j] = groupToMove[i][j]; //If you don't want to move grades frop previous course you should put 0 instead of "group.students[i].grades[j]"
-                }
-            }
-            return againGroup;
-        }
+        //    for (int i = 0; i < groupToMove.students.GetLength(0); i++)
+        //    {
+        //        againGroup[i] = groupToMove[i];
+        //        for (int j = 0; j < AMOUNT_GRADES_PER_STUDENT; j++)
+        //        {
+        //            againGroup[i][j] = groupToMove[i][j]; //If you don't want to move grades frop previous course you should put 0 instead of "group.students[i].grades[j]"
+        //        }
+        //    }
+        //    return againGroup;
+        //}
         public static int AmountOfUsers {
             get
             {
