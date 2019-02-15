@@ -12,8 +12,20 @@ namespace Univer
         const int firstLeft = 0;
         const int top = 7;
         const int secondLeft = 6;
+        private Dekanat dekanat;
+        private Middleware middleware;
+        
 
-        public static void ShowUIMain()
+        public ShowUI(Middleware middleware)
+        {
+            this.middleware = middleware;
+        }
+        public ShowUI(Dekanat dekanat)
+        {
+            this.dekanat = dekanat;
+        }
+
+    public void ShowUIMain()
         {
         Tools.ClearDisplay();
         UING.ShowMyUI("1) Adding", "2) Deleting", "3) Updating", "4) Find", "5) Analyze", "Main Menu");
@@ -21,7 +33,7 @@ namespace Univer
 
         }
 
-        public static void ShAddingGroup()
+        public void ShAddingGroup()
         {
             Tools.ClearDisplay();
             Console.WriteLine("################################### Add Group ###################################");
@@ -29,9 +41,10 @@ namespace Univer
             string specialization = Console.ReadLine();
             Console.Write("Enter group number: ");
             int groupNumber = Tools.ConverToInt();
-            Creation.AddNewGroup(groupNumber, specialization);
+            dekanat.AddNewGroup(specialization, groupNumber);
+            
         }  
-        public static void ShAddingStudent()
+        public void ShAddingStudent()
         {
             Tools.ClearDisplay();
             Console.WriteLine("################################### Add Student ###################################");
@@ -43,10 +56,10 @@ namespace Univer
             int studentNumber = Tools.ConverToInt();
             Console.Write("Enter group number: ");
             int groupNumber = Tools.ConverToInt();
-            if ((BL.SelectGroupIndex(groupNumber)) != -1)
+            Group ourGroup = dekanat.GetGroupByNumber(groupNumber);
+            if (ourGroup != null)
             {
-            Group ourGroup = Program.GroupGetter(groupNumber);
-                Creation.AddNewStudent(studentNumber, stName, stLstName, ref ourGroup);
+                ourGroup.AddNewStudent(studentNumber, stName, stLstName, DateTime.MinValue);
             }
             else
             {
@@ -57,16 +70,16 @@ namespace Univer
             }
             Tools.ClearDisplay();
         }
-        public static void ShSearchStudent()
+        public void ShSearchStudent()
         {
             Console.WriteLine("################################### Search Student ###################################");
             Console.Write("Enter query: ");
             string query = Console.ReadLine();
-            Student[] findedStudents = BL.SearchStudent(query);
+            Student[] findedStudents = bl.SearchStudent(query);
             UIMain.ShowStudents(ref findedStudents);
         }
 
-        public static void Processing()
+        public void Processing()
         {
             bool exit = true;
             do
@@ -88,27 +101,27 @@ namespace Univer
 
                     case ConsoleKey.D1:
                         UING.ShowMyUI("1) Add student", "2) Add group", "3) Add Grade", "Adding");
-                        Middleware.UIToBLInvoker(1);
+                        middleware.UIToBLInvoker(1);
                         break;
 
                     case ConsoleKey.D2:
                         UING.ShowMyUI("1) Delete student", "2) Delete group", "3) Delete grade", "Delete");
-                        Middleware.UIToBLInvoker(2);
+                        middleware.UIToBLInvoker(2);
                         break;
 
                     case ConsoleKey.D3:
                         UING.ShowMyUI("1) Upadte student info", "2) Update group info", "3) Update grade", "Update");
-                        Middleware.UIToBLInvoker(3);
+                        middleware.UIToBLInvoker(3);
                         break;
 
                     case ConsoleKey.D4:
                         UING.ShowMyUI("1) Find student", "2) Find group", "Find");
-                        Middleware.UIToBLInvoker(4);
+                        middleware.UIToBLInvoker(4);
                         break;
 
                     case ConsoleKey.D5:
                         UING.ShowMyUI("1) Average Grades", "2) Average Age", "Analyze");
-                        Middleware.UIToBLInvoker(5);
+                        middleware.UIToBLInvoker(5);
                         break;
 
 

@@ -14,14 +14,15 @@ namespace Univer
         public int[] grades; //Can hide array?
         private DateTime _birthDay;
 
-        public Student(int id, string fName, string lName, int[] grades, DateTime birthDay)
+        public Student(int id, string fName, string lName, DateTime birthDay)
         {
             this._birthDay = birthDay;
             this._firstName = fName;
             this._id = id;
             this._lastName = lName;
-            this.grades = grades;
+            this.grades = new int[Creation.AmountOfGrades];
         }
+
         public int this[int index]
         {
             get

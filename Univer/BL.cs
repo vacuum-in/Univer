@@ -5,44 +5,29 @@
 
     class BL
     {
-        /// <summary>
-        /// Search index of group bu group number
-        /// </summary>
-        /// <param name="num">Number of group</param>
-        /// <param name="groups">Array of groups</param>
-        /// <returns>Index of gruop we search</returns>
-        public static int SelectGroupIndex(int num)
+        private Dekanat dekanat;
+        public BL(Dekanat dekanat)
         {
-            for (int i = 0; i < Program.groups.Length; i++)
-            {
-                if (Program.groups[i] != null)
-                {
-                    if (Program.groups[i].GroupNumber == num)
-                    {
-                        return i;
-                    }
-                }
-            }
-            return -1;
+            this.dekanat = dekanat;
         }
-
-        public static Student[] SearchStudent(string query)
+        public Student[] SearchStudent(string query)
         {
             int cnt = 0;
             Student[] findedStudents = new Student[20];
             if (int.TryParse(query, out int numb))
             {
-                for (int i = 0; i <= Program.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+                for (int i = 0; i <= dekanat.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
                 {
-                    if (Program.groups[i] != null)
+
+                    if (dekanat[i] != null)
                     {
                         for (int j = 0; j < Creation.AmountOfUsers; j++)
                         {
-                            if (Program.groups[i].students[j] != null)
+                            if (dekanat[i].students[j] != null)
                             {
-                                if (Program.groups[i].students[j].Id == numb)
+                                if (dekanat[i].students[j].Id == numb)
                                 {
-                                    findedStudents[cnt] = Program.groups[i].students[j];
+                                    findedStudents[cnt] = dekanat[i].students[j];
                                     ++cnt;
                                 }
                             }
@@ -52,17 +37,17 @@
             }
             else
             {
-                for (int i = 0; i <= Program.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+                for (int i = 0; i <= dekanat.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
                 {
-                    if (Program.groups[i] != null)
+                    if (dekanat[i] != null)
                     {
                         for (int j = 0; j < Creation.AmountOfUsers; j++)
                         {
-                            if (Program.groups[i].students[j] != null)
+                            if (dekanat[i].students[j] != null)
                             {
-                                if (Program.groups[i].students[j].LastName == query || Program.groups[i].students[j].LastName == query)
+                                if (dekanat[i].students[j].LastName == query || dekanat[i].students[j].LastName == query)
                                 {
-                                    findedStudents[cnt] = Program.groups[i].students[j];
+                                    findedStudents[cnt] = dekanat[i].students[j];
                                     ++cnt;
                                 }
                             }                          
@@ -72,7 +57,7 @@
             }
             return findedStudents;           
         }
-        public static Group GetGroupByIndex(int groupIndex, ref Group[] groups)
+        public Group GetGroupByIndex(int groupIndex, ref Group[] groups)
         {
             return groups[groupIndex];
         }
@@ -84,7 +69,7 @@
         //    Creation.AddGroup(newGroupNum, ref nextGroup, ref groups);
         //}
 
-        public static double GetAvgGrade(ref Group group)
+        public double GetAvgGrade(ref Group group)
         {
             double temp = 0;
             for (int i = 0; i < group.students.GetLength(0); i++)
@@ -94,7 +79,7 @@
             Console.WriteLine(temp / group.students.GetLength(0));
             return (temp / group.students.GetLength(0));
         }
-        public static Double GetAvgAge(ref Group group)
+        public Double GetAvgAge(ref Group group)
         {
             double temp = 0;
             //DateTime tmpDate = new DateTime();
@@ -105,10 +90,10 @@
             Console.WriteLine(temp / group.students.GetLength(0));
             return (temp / group.students.GetLength(0));
         }
-        public static Student[] FindStudent(string Name, ref Group[] groups)
+        public Student[] FindStudent(string Name, ref Group[] groups)
         {
             Student[] temp = new Student[20];
-            for (int i = 0; i < Program.GroupCounter; i++)
+            for (int i = 0; i < dekanat.GroupCounter; i++)
             {
                 for (int j = 0; j < groups[i].students.GetLength(0); j++)
                 {

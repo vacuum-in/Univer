@@ -8,23 +8,17 @@ namespace Univer
         private string _specialization;
         public Student[] students;
 
-        public Group()
-        {
-
-        }
-
         /// <summary>
         /// New group constructor
         /// </summary>
         /// <param name="groupNumber">Number for group</param>
         /// <param name="specialization">Speciality of group</param>
-        public Group (int groupNumber, string specialization)
+        public Group(int groupNumber, string specialization)
         {
             this._groupNumber = groupNumber;
             this._specialization = specialization;
             this.students = new Student[Creation.AMOUNT_USERS_IN_GROUP];
         }
-
         /// <summary>
         /// Copy constructor
         /// </summary>
@@ -36,6 +30,11 @@ namespace Univer
             students = source.students;
         }
 
+        public Student AddNewStudent(int id, string fName, string lName, DateTime birthDay)
+        {
+            Student student = new Student( id,  fName,  lName,  birthDay);
+            return student;
+        }
         #region Prop and Indexer
         /// <summary>
         /// Student indexer

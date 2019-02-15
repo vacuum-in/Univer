@@ -8,8 +8,14 @@ namespace Univer
 {
     class Middleware
     {
-        public static void UIToBLInvoker(int context)
+        private ShowUI showUI;
+        public Middleware(ShowUI showUI)
         {
+            this.showUI = showUI;
+        }
+        public void UIToBLInvoker(int context)
+        {
+            
             ConsoleKey consoleKey = Console.ReadKey().Key;
             //Tools.ClearDisplay();
             if (context == 1)
@@ -19,10 +25,10 @@ namespace Univer
                     case ConsoleKey.D0:
                         break;
                     case ConsoleKey.D1:
-                        ShowUI.ShAddingStudent();
+                        showUI.ShAddingStudent();
                         break;
                     case ConsoleKey.D2:
-                        ShowUI.ShAddingGroup();
+                        showUI.ShAddingGroup();
                         break;
 
                     default:
@@ -68,7 +74,7 @@ namespace Univer
                     case ConsoleKey.D0:
                         break;
                     case ConsoleKey.D1:
-                        ShowUI.ShSearchStudent();
+                        showUI.ShSearchStudent();
                         break;
                     case ConsoleKey.D2:
                         break;

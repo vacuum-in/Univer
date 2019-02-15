@@ -5,21 +5,21 @@ using System.Text;
 
 namespace Univer
 {
-    class Dekanat
+    class Test_Dekanat_single
     {
         private int _groupCounter = 0;
         public Group[] groupsMass = new Group[Creation.AMOUNT_USERS_IN_GROUP];
 
-        private static Dekanat instance;
-        private Dekanat()
+        private static Test_Dekanat_single instance;
+        private Test_Dekanat_single()
         {
 
         }
-        public static Dekanat GetDekanat()
+        public static Test_Dekanat_single GetTest_Dekanat_single()
         {
             if (instance == null)
             {
-                instance = new Dekanat();               
+                instance = new Test_Dekanat_single();               
             }
             return instance;
         }
@@ -55,17 +55,13 @@ namespace Univer
         {
             return groupsMass[_groupCounter++] = new Group(numb, spec);
         }
-        /// <summary>
-        /// Function creates full copy of group that it receives, including copy of array.
-        /// </summary>
-        /// <param name="groupNumber"></param>
-        /// <returns></returns>
+
         public Group CreateNewGroupFromExisting(int groupNumber)
         {
-            Group groupToMove = GetGroupByNumber(groupNumber);
-            if (groupToMove != null)
+            int index = SelectGroupIndex(groupNumber);
+            if (index != -1)
             {
-
+                Group groupToMove = groupsMass[index]; 
                 Group againGroup = new Group(groupToMove);
 
                 for (int i = 0; i < groupToMove.students.GetLength(0); i++)
@@ -93,11 +89,6 @@ namespace Univer
                 AddExistingGroup(nextGroup);
             }
         }
-        /// <summary>
-        /// Function retuns index of group by it's number
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
         private int SelectGroupIndex(int num)
         {
             for (int i = 0; i < groupsMass.Length; i++)
@@ -111,23 +102,6 @@ namespace Univer
                 }
             }
             return -1;
-        }
-        /// <summary>
-        /// Function returns group object by it's number
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        public Group GetGroupByNumber(int number)
-        {
-            int index = SelectGroupIndex(number);
-            if (index != -1)
-            {
-                return groupsMass[index];
-            }
-            else
-            {
-                return null;
-            }
         }
     }
 }
