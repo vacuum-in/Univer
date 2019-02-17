@@ -10,53 +10,53 @@
         {
             this.dekanat = dekanat;
         }
-        public Student[] SearchStudent(string query)
-        {
-            int cnt = 0;
-            Student[] findedStudents = new Student[20];
-            if (int.TryParse(query, out int numb))
-            {
-                for (int i = 0; i <= dekanat.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
-                {
+        //public Student[] SearchStudent(string query)
+        //{
+        //    int cnt = 0;
+        //    Student[] findedStudents = new Student[20];
+        //    if (int.TryParse(query, out int numb))
+        //    {
+        //        for (int i = 0; i <= dekanat.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+        //        {
 
-                    if (dekanat[i] != null)
-                    {
-                        for (int j = 0; j < Creation.AmountOfUsers; j++)
-                        {
-                            if (dekanat[i].students[j] != null)
-                            {
-                                if (dekanat[i].students[j].Id == numb)
-                                {
-                                    findedStudents[cnt] = dekanat[i].students[j];
-                                    ++cnt;
-                                }
-                            }
-                        }
-                    }                    
-                }
-            }
-            else
-            {
-                for (int i = 0; i <= dekanat.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
-                {
-                    if (dekanat[i] != null)
-                    {
-                        for (int j = 0; j < Creation.AmountOfUsers; j++)
-                        {
-                            if (dekanat[i].students[j] != null)
-                            {
-                                if (dekanat[i].students[j].LastName == query || dekanat[i].students[j].LastName == query)
-                                {
-                                    findedStudents[cnt] = dekanat[i].students[j];
-                                    ++cnt;
-                                }
-                            }                          
-                        }
-                    }                       
-                }
-            }
-            return findedStudents;           
-        }
+        //            if (dekanat[i] != null)
+        //            {
+        //                for (int j = 0; j < Creation.AmountOfUsers; j++)
+        //                {
+        //                    if (dekanat[i].students[j] != null)
+        //                    {
+        //                        if (dekanat[i].students[j].Id == numb)
+        //                        {
+        //                            findedStudents[cnt] = dekanat[i].students[j];
+        //                            ++cnt;
+        //                        }
+        //                    }
+        //                }
+        //            }                    
+        //        }
+        //    }
+        //    else
+        //    {
+        //        for (int i = 0; i <= dekanat.GroupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+        //        {
+        //            if (dekanat[i] != null)
+        //            {
+        //                for (int j = 0; j < Creation.AmountOfUsers; j++)
+        //                {
+        //                    if (dekanat[i].students[j] != null)
+        //                    {
+        //                        if (dekanat[i].students[j].LastName == query || dekanat[i].students[j].LastName == query)
+        //                        {
+        //                            findedStudents[cnt] = dekanat[i].students[j];
+        //                            ++cnt;
+        //                        }
+        //                    }                          
+        //                }
+        //            }                       
+        //        }
+        //    }
+        //    return findedStudents;           
+        //}
         public Group GetGroupByIndex(int groupIndex, ref Group[] groups)
         {
             return groups[groupIndex];

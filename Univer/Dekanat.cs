@@ -129,5 +129,52 @@ namespace Univer
                 return null;
             }
         }
+        public Student[] SearchStudent(string query)
+        {
+            int cnt = 0;
+            Student[] findedStudents = new Student[20];
+            if (int.TryParse(query, out int numb))
+            {
+                for (int i = 0; i <= _groupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+                {
+
+                    if (groupsMass[i] != null)
+                    {
+                        for (int j = 0; j < Creation.AmountOfUsers; j++)
+                        {
+                            if (groupsMass[i].students[j] != null)
+                            {
+                                if (groupsMass[i].students[j].Id == numb)
+                                {
+                                    findedStudents[cnt] = groupsMass[i].students[j];
+                                    ++cnt;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= _groupCounter; i++) //ToDo Check another places with Program.GroupCounter prop ref
+                {
+                    if (groupsMass[i] != null)
+                    {
+                        for (int j = 0; j < Creation.AmountOfUsers; j++)
+                        {
+                            if (groupsMass[i].students[j] != null)
+                            {
+                                if (groupsMass[i].students[j].LastName == query || groupsMass[i].students[j].LastName == query)
+                                {
+                                    findedStudents[cnt] = groupsMass[i].students[j];
+                                    ++cnt;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return findedStudents;
+        }
     }
 }

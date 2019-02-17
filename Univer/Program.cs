@@ -13,16 +13,20 @@ namespace Univer
         public static Random rnd = new Random();
         static void Main(string[] args)
         {
-            Dekanat container = Dekanat.GetDekanat();
-            ShowUI showUI = new ShowUI(container);
+            Dekanat dekanat = Dekanat.GetDekanat();
+            ShowUI showUI = new ShowUI(dekanat);
+            Middleware mid = new Middleware(showUI);
+            ShowUI showUI2 = new ShowUI(mid);
+
+
 
             ////Container cont = new Container { groups = new Group[20] };
             ////groups = cont.groups; 
             ////   groups = new Group[20];
 
 
-            //dekanat.AddNewGroup("CompEngineering", 1001);
-            //dekanat.AddNewGroup("SoftEngineering", 2002);
+            dekanat.AddNewGroup("CompEngineering", 1001);
+            dekanat.AddNewGroup("SoftEngineering", 2002);
 
 
             ////Creation.AddGroup(ref groups,1001, "CompEngineering");
@@ -31,13 +35,13 @@ namespace Univer
             ////Group mygroup = GroupGetter(groupNumber);
 
 
-            //FillData.FillGroups(ref dekanat.groupsMass);
-            //FillData.FillGrades(ref dekanat.groupsMass);
-            //FillData.FillBirthdays(ref dekanat.groupsMass);
-            //UIMain.ShowGroups(ref dekanat.groupsMass);
-            //UIMain.ShowGrades(ref dekanat.groupsMass);
-            //Console.ReadKey();
-            //ShowUI.ShowUIMain();
+            FillData.FillGroups(ref dekanat.groupsMass);
+            FillData.FillGrades(ref dekanat.groupsMass);
+            FillData.FillBirthdays(ref dekanat.groupsMass);
+            UIMain.ShowGroups(ref dekanat.groupsMass);
+            UIMain.ShowGrades(ref dekanat.groupsMass);
+            Console.ReadKey();
+            showUI2.ShowUIMain();
             ////      BL.MoveToNextLevel(ref mygroup, mygroup.groupNumber + 1000 , ref groups);
 
             //UIMain.ShowGroups(ref dekanat.groupsMass);

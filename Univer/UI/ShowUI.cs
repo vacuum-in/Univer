@@ -29,7 +29,7 @@ namespace Univer
         {
         Tools.ClearDisplay();
         UING.ShowMyUI("1) Adding", "2) Deleting", "3) Updating", "4) Find", "5) Analyze", "Main Menu");
-            Processing();
+            this.Processing();
 
         }
 
@@ -75,7 +75,7 @@ namespace Univer
             Console.WriteLine("################################### Search Student ###################################");
             Console.Write("Enter query: ");
             string query = Console.ReadLine();
-            Student[] findedStudents = bl.SearchStudent(query);
+            Student[] findedStudents = dekanat.SearchStudent(query);
             UIMain.ShowStudents(ref findedStudents);
         }
 
