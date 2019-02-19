@@ -5,13 +5,13 @@ namespace Univer
 {
     class UIMain
     {
-        public static void ShowGroups(ref Group[] groups)
+        public static void ShowGroups(Dekanat dekanat)
         {
-            for (int i = 0; i < groups.Length; i++)
+            for (int i = 0; i < dekanat.groupsMass.Length; i++)
             {
-                if (groups[i] != null)
+                if (dekanat[i] != null)
                 {
-                    Console.WriteLine("{0}   {1}", groups[i].Specialization, groups[i].GroupNumber);
+                    Console.WriteLine("{0}   {1}", dekanat[i].Specialization, dekanat[i].GroupNumber);
                 }
             }
         }
@@ -35,7 +35,7 @@ namespace Univer
                         if (groups[i].students[j] != null)
                         {
                             Console.WriteLine("  {0} {1} {2}", groups[i].students[j].FirstName, groups[i].students[j].LastName, groups[i].students[j].BirthDay.ToLongDateString());
-                            for (int k = 0; k < Creation.AMOUNT_GRADES_PER_STUDENT; k++)
+                            for (int k = 0; k < Program.AMOUNT_GRADES_PER_STUDENT; k++)
                             {
                                 Console.WriteLine("             {0}", groups[i].students[j][k]);
                             }
@@ -54,7 +54,7 @@ namespace Univer
                 {
                     Console.WriteLine("Student {0} {1}", students[i].FirstName, students[i].LastName);
                     Console.WriteLine("ID {0}", students[i].Id);
-                    for (int j = 0; j < Creation.AMOUNT_GRADES_PER_STUDENT; j++)
+                    for (int j = 0; j < Program.AMOUNT_GRADES_PER_STUDENT; j++)
                     {
                         if (students[i][j] != 0)
                         {

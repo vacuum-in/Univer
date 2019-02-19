@@ -20,7 +20,7 @@ namespace Univer
             this._firstName = fName;
             this._id = id;
             this._lastName = lName;
-            this.grades = new int[Creation.AmountOfGrades];
+            this.grades = new int[Program.AMOUNT_GRADES_PER_STUDENT];
         }
 
         public int this[int index]

@@ -8,7 +8,7 @@ namespace Univer
     class Dekanat
     {
         private int _groupCounter = 0;
-        public Group[] groupsMass = new Group[Creation.AMOUNT_USERS_IN_GROUP];
+        public Group[] groupsMass = new Group[Program.AMOUNT_USERS_IN_GROUP];
 
         private static Dekanat instance;
         private Dekanat()
@@ -48,7 +48,7 @@ namespace Univer
         }
         public void AddExistingGroup(Group group)
         {
-            groupsMass[++_groupCounter] = group;
+            groupsMass[_groupCounter++] = group;
         }
 
         public Group AddNewGroup(string spec, int numb)
@@ -71,9 +71,12 @@ namespace Univer
                 for (int i = 0; i < groupToMove.students.GetLength(0); i++)
                 {
                     againGroup[i] = groupToMove[i];
-                    for (int j = 0; j < Creation.AMOUNT_GRADES_PER_STUDENT; j++)
+                    for (int j = 0; j < Program.AMOUNT_GRADES_PER_STUDENT; j++)
                     {
-                        againGroup[i][j] = groupToMove[i][j]; //If you don't want to move grades frop previous course you should put 0 instead of "group.students[i].grades[j]"
+                        if (groupToMove[i] != null)
+                        {
+                            againGroup[i][j] = groupToMove[i][j]; //If you don't want to move grades from previous course you should put 0 instead of "group.students[i].grades[j]"
+                        }                      
                     }
                 }
                 return againGroup;
@@ -140,7 +143,7 @@ namespace Univer
 
                     if (groupsMass[i] != null)
                     {
-                        for (int j = 0; j < Creation.AmountOfUsers; j++)
+                        for (int j = 0; j < Program.AMOUNT_USERS_IN_GROUP; j++)
                         {
                             if (groupsMass[i].students[j] != null)
                             {
@@ -160,7 +163,7 @@ namespace Univer
                 {
                     if (groupsMass[i] != null)
                     {
-                        for (int j = 0; j < Creation.AmountOfUsers; j++)
+                        for (int j = 0; j < Program.AMOUNT_USERS_IN_GROUP; j++)
                         {
                             if (groupsMass[i].students[j] != null)
                             {

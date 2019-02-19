@@ -13,13 +13,13 @@ namespace Univer
         const int top = 7;
         const int secondLeft = 6;
         private Dekanat dekanat;
-        private Middleware middleware;
+        //private Middleware middleware;
         
 
-        public ShowUI(Middleware middleware)
-        {
-            this.middleware = middleware;
-        }
+        //public ShowUI(Middleware middleware)
+        //{
+        //    this.middleware = middleware;
+        //}
         public ShowUI(Dekanat dekanat)
         {
             this.dekanat = dekanat;
@@ -101,27 +101,27 @@ namespace Univer
 
                     case ConsoleKey.D1:
                         UING.ShowMyUI("1) Add student", "2) Add group", "3) Add Grade", "Adding");
-                        middleware.UIToBLInvoker(1);
+                        UIToBLInvoker(1);
                         break;
 
                     case ConsoleKey.D2:
                         UING.ShowMyUI("1) Delete student", "2) Delete group", "3) Delete grade", "Delete");
-                        middleware.UIToBLInvoker(2);
+                        UIToBLInvoker(2);
                         break;
 
                     case ConsoleKey.D3:
                         UING.ShowMyUI("1) Upadte student info", "2) Update group info", "3) Update grade", "Update");
-                        middleware.UIToBLInvoker(3);
+                        UIToBLInvoker(3);
                         break;
 
                     case ConsoleKey.D4:
                         UING.ShowMyUI("1) Find student", "2) Find group", "Find");
-                        middleware.UIToBLInvoker(4);
+                        UIToBLInvoker(4);
                         break;
 
                     case ConsoleKey.D5:
                         UING.ShowMyUI("1) Average Grades", "2) Average Age", "Analyze");
-                        middleware.UIToBLInvoker(5);
+                        UIToBLInvoker(5);
                         break;
 
 
@@ -129,6 +129,76 @@ namespace Univer
                         break;
                 }
             } while (exit);
+        }
+        public void UIToBLInvoker(int context)
+        {
+
+            ConsoleKey consoleKey = Console.ReadKey().Key;
+            //Tools.ClearDisplay();
+            if (context == 1)
+            {
+                switch (consoleKey)
+                {
+                    case ConsoleKey.D0:
+                        break;
+                    case ConsoleKey.D1:
+                        ShAddingStudent();
+                        break;
+                    case ConsoleKey.D2:
+                        ShAddingGroup();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            if (context == 2)
+            {
+                switch (consoleKey)
+                {
+                    case ConsoleKey.D0:
+                        break;
+                    case ConsoleKey.D1:
+                        // ShowUI.ShAddingStudent();
+                        break;
+                    case ConsoleKey.D2:
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            if (context == 3)
+            {
+                switch (consoleKey)
+                {
+                    case ConsoleKey.D0:
+                        break;
+                    case ConsoleKey.D1:
+                        break;
+                    case ConsoleKey.D2:
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            if (context == 4)
+            {
+                switch (consoleKey)
+                {
+                    case ConsoleKey.D0:
+                        break;
+                    case ConsoleKey.D1:
+                        ShSearchStudent();
+                        break;
+                    case ConsoleKey.D2:
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
 
     }

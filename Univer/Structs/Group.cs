@@ -17,7 +17,7 @@ namespace Univer
         {
             this._groupNumber = groupNumber;
             this._specialization = specialization;
-            this.students = new Student[Creation.AMOUNT_USERS_IN_GROUP];
+            this.students = new Student[Program.AMOUNT_USERS_IN_GROUP];
         }
         /// <summary>
         /// Copy constructor

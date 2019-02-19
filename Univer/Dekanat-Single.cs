@@ -8,7 +8,7 @@ namespace Univer
     class Test_Dekanat_single
     {
         private int _groupCounter = 0;
-        public Group[] groupsMass = new Group[Creation.AMOUNT_USERS_IN_GROUP];
+        public Group[] groupsMass = new Group[Program.AMOUNT_USERS_IN_GROUP];
 
         private static Test_Dekanat_single instance;
         private Test_Dekanat_single()
@@ -67,7 +67,7 @@ namespace Univer
                 for (int i = 0; i < groupToMove.students.GetLength(0); i++)
                 {
                     againGroup[i] = groupToMove[i];
-                    for (int j = 0; j < Creation.AMOUNT_GRADES_PER_STUDENT; j++)
+                    for (int j = 0; j < Program.AMOUNT_GRADES_PER_STUDENT; j++)
                     {
                         againGroup[i][j] = groupToMove[i][j]; //If you don't want to move grades frop previous course you should put 0 instead of "group.students[i].grades[j]"
                     }
