@@ -47,6 +47,7 @@
     <Compile Include="Dekanat.cs" />
     <Compile Include="Deletion.cs" />
     <Compile Include="FillData.cs" />
+    <Compile Include="ID.cs" />
     <Compile Include="Structs\Group.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="Program.cs" />
