@@ -43,46 +43,15 @@ namespace Univer
             UIMain.ShowGrades(ref dekanat.groupsMass);
             Console.ReadKey();
             showUI.ShowUIMain();
-            ////      BL.MoveToNextLevel(ref mygroup, mygroup.groupNumber + 1000 , ref groups);
 
-            //UIMain.ShowGroups(ref dekanat.groupsMass);
-            //UIMain.ShowGrades(ref dekanat.groupsMass);
-            ////BL.GetAvgGrade(ref mygroup);
-            ////BL.GetAvgAge(ref mygroup);
+            UIMain.ShowGroups( dekanat);
+            UIMain.ShowGrades(ref dekanat.groupsMass);
+            //BL.GetAvgGrade(ref mygroup);
+            //BL.GetAvgAge(ref mygroup);
 
-            //Console.ReadKey();
+            Console.ReadKey();
 
         }
-        //public void test()
-        //{
-        //    Initializer.Init();
-        //}
-        //public static Group GroupGetter(int groupNumber)
-        //{
-
-        //    int groupIndex = BL.SelectGroupIndex(groupNumber);
-        //    Group mygroup = BL.GetGroupByIndex(groupIndex, ref init);
-        //    return mygroup;
-        //}
-
-        //public static Group[] GroupsMassGetter()
-        //{
-        //    Container cont = new Container();
-        //    cont.groups = new Group[20];
-        //    Group[] groups = cont.groups;
-        //    return groups;
-        //}
-        //public static int GroupCounter
-        //{
-        //    get
-        //    {
-        //        return _groupCounter;
-        //    }
-        //    set
-        //    {
-        //        _groupCounter = value;
-        //    }
-        //}
     }
 
     }

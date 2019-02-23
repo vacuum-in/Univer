@@ -13,13 +13,7 @@ namespace Univer
         const int top = 7;
         const int secondLeft = 6;
         private Dekanat dekanat;
-        //private Middleware middleware;
-        
 
-        //public ShowUI(Middleware middleware)
-        //{
-        //    this.middleware = middleware;
-        //}
         public ShowUI(Dekanat dekanat)
         {
             this.dekanat = dekanat;
@@ -27,15 +21,15 @@ namespace Univer
 
     public void ShowUIMain()
         {
-        Tools.ClearDisplay();
-        UING.ShowMyUI("1) Adding", "2) Deleting", "3) Updating", "4) Find", "5) Analyze", "Main Menu");
+            Console.Clear();
+            UING.ShowMyUI("1) Adding", "2) Deleting", "3) Updating", "4) Find", "5) Analyze", "Main Menu");
             this.Processing();
 
         }
 
         public void ShAddingGroup()
         {
-            Tools.ClearDisplay();
+            Console.Clear();
             Console.WriteLine("################################### Add Group ###################################");
             Console.Write("Enter specialization: ");
             string specialization = Console.ReadLine();
@@ -46,7 +40,7 @@ namespace Univer
         }  
         public void ShAddingStudent()
         {
-            Tools.ClearDisplay();
+            Console.Clear();
             Console.WriteLine("################################### Add Student ###################################");
             Console.Write("Enter first name: ");
             string stName = Console.ReadLine();
@@ -68,7 +62,7 @@ namespace Univer
                 ShowUIMain();
 
             }
-            Tools.ClearDisplay();
+            Console.Clear();
         }
         public void ShSearchStudent()
         {
@@ -84,10 +78,7 @@ namespace Univer
             bool exit = true;
             do
             {
-                ////Console.SetCursorPosition(firstLeft, top);
-                ////Console.WriteLine("Enter: ");
                 Console.SetCursorPosition(secondLeft, top);
-                // Console.ReadKey();
                 ConsoleKey key = Console.ReadKey().Key;
                 switch (key)
                 {
@@ -134,7 +125,6 @@ namespace Univer
         {
 
             ConsoleKey consoleKey = Console.ReadKey().Key;
-            //Tools.ClearDisplay();
             if (context == 1)
             {
                 switch (consoleKey)
@@ -159,7 +149,6 @@ namespace Univer
                     case ConsoleKey.D0:
                         break;
                     case ConsoleKey.D1:
-                        // ShowUI.ShAddingStudent();
                         break;
                     case ConsoleKey.D2:
                         break;

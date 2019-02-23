@@ -30,10 +30,44 @@ namespace Univer
             students = source.students;
         }
 
-        public Student AddNewStudent(int id, string fName, string lName, DateTime birthDay)
+        public void AddNewStudent(int id, string fName, string lName, DateTime birthDay)
         {
             Student student = new Student( id,  fName,  lName,  birthDay);
+            for (int i = 0; i < Program.AMOUNT_USERS_IN_GROUP; i++)
+            {
+                if (students[i] == null)
+                {
+                    students[i] = student;
+                    break;
+                }
+            }
+        }
+        public Student CreateNewStudent(int id, string fName, string lName, DateTime birthDay)
+        {
+            Student student = new Student(id, fName, lName, birthDay);
             return student;
+        }
+        public Double GetAvgAge()
+        {
+            double temp = 0;
+            for (int i = 0; i < this.students.GetLength(0); i++)
+            {
+                temp += (DateTime.Now.Year - this[i].BirthDay.Year);
+            }
+            Console.WriteLine(temp / this.students.GetLength(0));
+            return (temp / this.students.GetLength(0));
+        }
+        public double GetAvgGrade()
+        {
+            double temp = 0;
+            for (int i = 0; i < students.GetLength(0); i++)
+            {
+                double[] doublearray = new double[Program.AMOUNT_GRADES_PER_STUDENT];
+                doublearray = Array.ConvertAll
+                temp += students[i].grades.;
+            }
+            Console.WriteLine(temp / group.students.GetLength(0));
+            return (temp / group.students.GetLength(0));
         }
         #region Prop and Indexer
         /// <summary>

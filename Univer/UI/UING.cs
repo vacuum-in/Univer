@@ -10,7 +10,7 @@ namespace Univer.UI
 
         public static void ShowMyUI(string first, string second, string third, string fourth, string fifth, string menu)
         {
-            Tools.ClearDisplay();
+            Console.Clear();
             Console.WriteLine("################################### {0} ###################################", menu);
             Console.WriteLine(first);
             Console.WriteLine(second);
@@ -20,7 +20,7 @@ namespace Univer.UI
         }
         public static void ShowMyUI(string first, string second, string third, string fourth, string menu)
         {
-            Tools.ClearDisplay();
+            Console.Clear();
             Console.WriteLine("################################### {0} ###################################", menu);
             Console.WriteLine(first);
             Console.WriteLine(second);
@@ -29,7 +29,7 @@ namespace Univer.UI
         }
         public static void ShowMyUI(string first, string second, string third, string menu)
         {
-            Tools.ClearDisplay();
+            Console.Clear();
             Console.WriteLine("################################### {0} ###################################", menu);
             Console.WriteLine(first);
             Console.WriteLine(second);
@@ -37,7 +37,7 @@ namespace Univer.UI
         }
         public static void ShowMyUI(string first, string second, string menu)
         {
-            Tools.ClearDisplay();
+            Console.Clear();
             Console.WriteLine("################################### {0} ###################################", menu);
             Console.WriteLine(first);
             Console.WriteLine(second);
